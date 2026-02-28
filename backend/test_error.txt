@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\aide-pcb-command-main\backend\test_diagnostician.py", line 10, in test
+    res = getattr(diag, '_run_mock')(vr, None)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\aide-pcb-command-main\backend\diagnostician.py", line 235, in _run_mock
+    IMMEDIATE_ACTION: Power off immediately. Measure {fault_comp} resistance in-circuit (should be ~{fault_info.get('original_value', 5.0):.1f}Ω nominal). Replace {fault_comp} if resistance < 1Ω.
+                                                                                                     ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'

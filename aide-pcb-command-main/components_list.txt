@@ -1,0 +1,8 @@
+﻿DiagnosticPanel.tsx
+ESP32System3D.tsx
+Layout.tsx
+NavLink.tsx
+PCBViewer.tsx
+SimulationControls.tsx
+TelemetryCharts.tsx
+VoiceAssistant.tsx

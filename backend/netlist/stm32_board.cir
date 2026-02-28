@@ -1,0 +1,63 @@
+* AIDE-PCB Demo Netlist - STM32F407 Board
+* Format: SPICE-compatible subset
+* Nodes: VCC, GND, N1..N8, USB_VBUS, CLK_OUT, ADC_IN
+
+* === POWER SUPPLY SECTION ===
+* Voltage sources
+VUSB  USB_VBUS  GND  DC 5.0      $ USB Input 5V
+VREG  VCC       GND  DC 3.3      $ 3.3V Regulator Output
+
+* === VOLTAGE REGULATOR: U1 (LDO 5V->3.3V) ===
+* Modeled as resistance between USB_VBUS and VCC
+R_U1  USB_VBUS  VCC  5.0         $ LDO internal resistance ~5 Ohm
+
+* === DECOUPLING CAPACITORS ===
+C1    VCC       GND  0.0001      $ 100uF bulk cap
+C2    VCC       GND  0.000001    $ 1uF ceramic cap near MCU
+
+* === MCU: U2 (STM32F407) ===
+* Power input pins
+R_VDD    VCC     N1   0.1        $ VDD trace resistance
+R_GND    N1      GND  0.05       $ Ground trace
+
+* === CLOCK CIRCUIT ===
+X1    N2        GND  XTAL 8MHz   $ 8MHz Crystal
+R_CLK N1        N2   100         $ Clock bias resistor
+C_CLK1 N2       GND  0.000000022 $ 22pF load cap
+C_CLK2 N3       GND  0.000000022 $ 22pF load cap
+* MCU drives CLK_OUT
+R_CLKOUT N1     CLK_OUT  50     $ Clock output buffer resistance
+
+* === ADC INPUT CIRCUIT ===
+R1    N4       ADC_IN  10000     $ 10k input resistor
+R2    ADC_IN   GND     4700      $ 4.7k pulldown (nominal)
+C_ADC ADC_IN   GND  0.0000001   $ 100nF ADC filter cap
+
+* === LED INDICATOR (D1) ===
+R_LED VCC      N5    330         $ 330 Ohm current limiting resistor
+D1    N5       GND   LED         $ Status LED
+
+* === USB DATA LINES ===
+R_DP  USB_VBUS  N6   22          $ D+ series resistor
+R_DM  USB_VBUS  N7   22          $ D- series resistor
+
+* === POWER STAGE (High Current) ===
+Q1    VCC      N8   GND  NPN    $ Power transistor
+R_B   N1       N8   1000        $ Base resistor 1k
+
+* === TEST POINTS ===
+* TP-1: VCC Rail measurement node -> VCC
+* TP-2: GND reference         -> GND
+* TP-3: ADC Input             -> ADC_IN
+* TP-4: Clock Output          -> CLK_OUT
+* TP-5: Power Stage           -> N8
+* TP-6: USB VBUS              -> USB_VBUS
+
+.TP TP-1   VCC     3.3  0.165    $ node  expected_V  expected_I
+.TP TP-2   GND     0.0  0.0
+.TP TP-3   ADC_IN  2.48 0.01
+.TP TP-4   CLK_OUT 3.28 0.12
+.TP TP-5   N8      5.02 1.2
+.TP TP-6   USB_VBUS 5.0 0.8
+
+.END

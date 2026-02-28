@@ -1,0 +1,80 @@
+{
+    "VCC": {
+        "x": 320,
+        "y": 80,
+        "label": "VCC 3.3V Rail",
+        "color": "#22d3ee"
+    },
+    "GND": {
+        "x": 320,
+        "y": 480,
+        "label": "Ground",
+        "color": "#64748b"
+    },
+    "USB_VBUS": {
+        "x": 60,
+        "y": 80,
+        "label": "USB VBUS 5V",
+        "color": "#a78bfa"
+    },
+    "N1": {
+        "x": 320,
+        "y": 160,
+        "label": "MCU VDD Node",
+        "color": "#22d3ee"
+    },
+    "N2": {
+        "x": 500,
+        "y": 200,
+        "label": "Crystal Node A",
+        "color": "#34d399"
+    },
+    "N3": {
+        "x": 580,
+        "y": 200,
+        "label": "Crystal Node B",
+        "color": "#34d399"
+    },
+    "N4": {
+        "x": 180,
+        "y": 300,
+        "label": "ADC Input Stage",
+        "color": "#fbbf24"
+    },
+    "N5": {
+        "x": 420,
+        "y": 150,
+        "label": "LED Anode",
+        "color": "#f87171"
+    },
+    "N6": {
+        "x": 60,
+        "y": 200,
+        "label": "USB D+ Line",
+        "color": "#a78bfa"
+    },
+    "N7": {
+        "x": 60,
+        "y": 250,
+        "label": "USB D- Line",
+        "color": "#a78bfa"
+    },
+    "N8": {
+        "x": 420,
+        "y": 340,
+        "label": "Power Stage",
+        "color": "#fb923c"
+    },
+    "ADC_IN": {
+        "x": 180,
+        "y": 360,
+        "label": "ADC Input Pin",
+        "color": "#fbbf24"
+    },
+    "CLK_OUT": {
+        "x": 500,
+        "y": 150,
+        "label": "Clock Output",
+        "color": "#34d399"
+    }
+}

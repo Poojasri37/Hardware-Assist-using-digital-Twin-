@@ -1,0 +1,352 @@
+{
+  "test_name": "Short to Ground \u2014 VCC Rail",
+  "timestamp": "2026-02-25T23:18:24Z",
+  "board": "STM32F407 Development Board",
+  "circuit_summary": {
+    "nodes": [
+      "USB_VBUS",
+      "GND",
+      "VCC",
+      "N1",
+      "N2",
+      "N3",
+      "CLK_OUT",
+      "N4",
+      "ADC_IN",
+      "N5",
+      "N6",
+      "N7",
+      "N8"
+    ],
+    "edge_count": 16,
+    "active_faults": 0,
+    "test_points": [
+      "TP-1",
+      "TP-2",
+      "TP-3",
+      "TP-4",
+      "TP-5",
+      "TP-6"
+    ],
+    "components": [
+      {
+        "ref": "VUSB",
+        "type": "V",
+        "value": 5.0,
+        "node_a": "USB_VBUS",
+        "node_b": "GND"
+      },
+      {
+        "ref": "VREG",
+        "type": "V",
+        "value": 3.3,
+        "node_a": "VCC",
+        "node_b": "GND"
+      },
+      {
+        "ref": "R_U1",
+        "type": "R",
+        "value": 5.0,
+        "node_a": "USB_VBUS",
+        "node_b": "VCC"
+      },
+      {
+        "ref": "C1",
+        "type": "C",
+        "value": 0.0001,
+        "node_a": "VCC",
+        "node_b": "GND"
+      },
+      {
+        "ref": "C2",
+        "type": "C",
+        "value": 1e-06,
+        "node_a": "VCC",
+        "node_b": "GND"
+      },
+      {
+        "ref": "R_VDD",
+        "type": "R",
+        "value": 0.1,
+        "node_a": "VCC",
+        "node_b": "N1"
+      },
+      {
+        "ref": "R_GND",
+        "type": "R",
+        "value": 0.05,
+        "node_a": "N1",
+        "node_b": "GND"
+      },
+      {
+        "ref": "X1",
+        "type": "X",
+        "value": 0.0,
+        "node_a": "N2",
+        "node_b": "GND"
+      },
+      {
+        "ref": "R_CLK",
+        "type": "R",
+        "value": 100.0,
+        "node_a": "N1",
+        "node_b": "N2"
+      },
+      {
+        "ref": "C_CLK1",
+        "type": "C",
+        "value": 2.2e-08,
+        "node_a": "N2",
+        "node_b": "GND"
+      },
+      {
+        "ref": "C_CLK2",
+        "type": "C",
+        "value": 2.2e-08,
+        "node_a": "N3",
+        "node_b": "GND"
+      },
+      {
+        "ref": "R_CLKOUT",
+        "type": "R",
+        "value": 50.0,
+        "node_a": "N1",
+        "node_b": "CLK_OUT"
+      },
+      {
+        "ref": "R1",
+        "type": "R",
+        "value": 10000.0,
+        "node_a": "N4",
+        "node_b": "ADC_IN"
+      },
+      {
+        "ref": "R2",
+        "type": "R",
+        "value": 4700.0,
+        "node_a": "ADC_IN",
+        "node_b": "GND"
+      },
+      {
+        "ref": "C_ADC",
+        "type": "C",
+        "value": 1e-07,
+        "node_a": "ADC_IN",
+        "node_b": "GND"
+      },
+      {
+        "ref": "R_LED",
+        "type": "R",
+        "value": 330.0,
+        "node_a": "VCC",
+        "node_b": "N5"
+      },
+      {
+        "ref": "D1",
+        "type": "D",
+        "value": 0.0,
+        "node_a": "N5",
+        "node_b": "GND"
+      },
+      {
+        "ref": "R_DP",
+        "type": "R",
+        "value": 22.0,
+        "node_a": "USB_VBUS",
+        "node_b": "N6"
+      },
+      {
+        "ref": "R_DM",
+        "type": "R",
+        "value": 22.0,
+        "node_a": "USB_VBUS",
+        "node_b": "N7"
+      },
+      {
+        "ref": "Q1",
+        "type": "Q",
+        "value": 0.0,
+        "node_a": "VCC",
+        "node_b": "GND"
+      },
+      {
+        "ref": "R_B",
+        "type": "R",
+        "value": 1000.0,
+        "node_a": "N1",
+        "node_b": "N8"
+      }
+    ]
+  },
+  "baseline_results": [
+    {
+      "test_point": "TP-1",
+      "node": "VCC",
+      "measured_v": 3.3,
+      "expected_v": 3.3,
+      "measured_i": 0.165,
+      "expected_i": 0.165,
+      "delta_v": 0.0,
+      "delta_i": 0.0,
+      "status": "WARN",
+      "anomaly_code": "MARGINAL",
+      "explanation": "Node VCC: V=3.300V (expected 3.300V, \u0394=+0.000V, 0.0%) | WARNING: marginal readings. R_U1: V=IR gives 0.825V, measured 3.300V; R_VDD: V=IR gives 0.017V, measured 3.300V; R_LED: V=IR gives 54.450V, measured 3.300V; R_GND: V=IR gives 0.008V, measured 3.300V; R_CLK: V=IR gives 16.500V, measured 3.300V; R_CLKOUT: V=IR gives 8.250V, measured 3.300V; R_B: V=IR gives 165.000V, measured 3.300V; R1: V=IR gives 1650.000V, measured 3.300V",
+      "ar_coords": {
+        "x": 320,
+        "y": 80,
+        "label": "VCC 3.3V Rail",
+        "color": "#22d3ee"
+      }
+    },
+    {
+      "test_point": "TP-5",
+      "node": "N8",
+      "measured_v": 5.02,
+      "expected_v": 5.02,
+      "measured_i": 1.2,
+      "expected_i": 1.2,
+      "delta_v": 0.0,
+      "delta_i": 0.0,
+      "status": "WARN",
+      "anomaly_code": "MARGINAL",
+      "explanation": "Node N8: V=5.020V (expected 5.020V, \u0394=+0.000V, 0.0%) | WARNING: marginal readings. R_U1: V=IR gives 6.000V, measured 5.020V; R_DP: V=IR gives 26.400V, measured 5.020V; R_DM: V=IR gives 26.400V, measured 5.020V; R_VDD: V=IR gives 0.120V, measured 5.020V; R_LED: V=IR gives 396.000V, measured 5.020V; R_GND: V=IR gives 0.060V, measured 5.020V; R_CLK: V=IR gives 120.000V, measured 5.020V; R_CLKOUT: V=IR gives 60.000V, measured 5.020V; R_B: V=IR gives 1200.000V, measured 5.020V; R1: V=IR gives 12000.000V, measured 5.020V",
+      "ar_coords": {
+        "x": 420,
+        "y": 340,
+        "label": "Power Stage",
+        "color": "#fb923c"
+      }
+    },
+    {
+      "test_point": "TP-6",
+      "node": "USB_VBUS",
+      "measured_v": 5.0,
+      "expected_v": 5.0,
+      "measured_i": 0.8,
+      "expected_i": 0.8,
+      "delta_v": 0.0,
+      "delta_i": 0.0,
+      "status": "WARN",
+      "anomaly_code": "MARGINAL",
+      "explanation": "Node USB_VBUS: V=5.000V (expected 5.000V, \u0394=+0.000V, 0.0%) | WARNING: marginal readings. R_U1: V=IR gives 4.000V, measured 5.000V; R_DP: V=IR gives 17.600V, measured 5.000V; R_DM: V=IR gives 17.600V, measured 5.000V; R_VDD: V=IR gives 0.080V, measured 5.000V; R_LED: V=IR gives 264.000V, measured 5.000V; R_GND: V=IR gives 0.040V, measured 5.000V; R_CLK: V=IR gives 80.000V, measured 5.000V; R_CLKOUT: V=IR gives 40.000V, measured 5.000V; R_B: V=IR gives 800.000V, measured 5.000V; R1: V=IR gives 8000.000V, measured 5.000V",
+      "ar_coords": {
+        "x": 60,
+        "y": 80,
+        "label": "USB VBUS 5V",
+        "color": "#a78bfa"
+      }
+    }
+  ],
+  "fault_info": {
+    "fault_type": "short",
+    "component": "R_U1",
+    "node_a": "USB_VBUS",
+    "node_b": "VCC",
+    "original_value": 5.0
+  },
+  "post_fault_results": [
+    {
+      "test_point": "TP-1",
+      "node": "VCC",
+      "measured_v": 0.048,
+      "expected_v": 3.3,
+      "measured_i": 0.82,
+      "expected_i": 0.165,
+      "delta_v": -3.252,
+      "delta_i": 0.655,
+      "status": "FAIL",
+      "anomaly_code": "SHORT_TO_GND",
+      "explanation": "\u26a1 SHORT TO GND detected on R_U1 \u2192 Node VCC pulled to 0V. measured=0.048V. KCL violation: sink current \u221e. Ohm's Law: R\u22480\u03a9 confirmed.",
+      "ar_coords": {
+        "x": 320,
+        "y": 80,
+        "label": "VCC 3.3V Rail",
+        "color": "#22d3ee"
+      }
+    },
+    {
+      "test_point": "TP-5",
+      "node": "N8",
+      "measured_v": 0.312,
+      "expected_v": 5.02,
+      "measured_i": 6.5,
+      "expected_i": 1.2,
+      "delta_v": -4.708,
+      "delta_i": 5.3,
+      "status": "FAIL",
+      "anomaly_code": "THRESHOLD_EXCEEDED",
+      "explanation": "Node N8: V=0.312V (expected 5.020V, \u0394=-4.708V, 93.8%) | ANOMALY: V deviation 93.8% exceeds 10% threshold.",
+      "ar_coords": {
+        "x": 420,
+        "y": 340,
+        "label": "Power Stage",
+        "color": "#fb923c"
+      }
+    },
+    {
+      "test_point": "TP-6",
+      "node": "USB_VBUS",
+      "measured_v": 4.98,
+      "expected_v": 5.0,
+      "measured_i": 3.1,
+      "expected_i": 0.8,
+      "delta_v": -0.02,
+      "delta_i": 2.3,
+      "status": "FAIL",
+      "anomaly_code": "THRESHOLD_EXCEEDED",
+      "explanation": "Node USB_VBUS: V=4.980V (expected 5.000V, \u0394=-0.020V, 0.4%) | ANOMALY: V deviation 0.4% exceeds 10% threshold.",
+      "ar_coords": {
+        "x": 60,
+        "y": 80,
+        "label": "USB VBUS 5V",
+        "color": "#a78bfa"
+      }
+    },
+    {
+      "test_point": "TP-3",
+      "node": "ADC_IN",
+      "measured_v": 0.021,
+      "expected_v": 2.48,
+      "measured_i": 0.0,
+      "expected_i": 0.01,
+      "delta_v": -2.459,
+      "delta_i": -0.01,
+      "status": "FAIL",
+      "anomaly_code": "THRESHOLD_EXCEEDED",
+      "explanation": "Node ADC_IN: V=0.021V (expected 2.480V, \u0394=-2.459V, 99.2%) | ANOMALY: V deviation 99.2% exceeds 10% threshold.",
+      "ar_coords": {
+        "x": 180,
+        "y": 360,
+        "label": "ADC Input Pin",
+        "color": "#fbbf24"
+      }
+    },
+    {
+      "test_point": "TP-4",
+      "node": "CLK_OUT",
+      "measured_v": 0.0,
+      "expected_v": 3.28,
+      "measured_i": 0.0,
+      "expected_i": 0.12,
+      "delta_v": -3.28,
+      "delta_i": -0.12,
+      "status": "FAIL",
+      "anomaly_code": "THRESHOLD_EXCEEDED",
+      "explanation": "Node CLK_OUT: V=0.000V (expected 3.280V, \u0394=-3.280V, 100.0%) | ANOMALY: V deviation 100.0% exceeds 10% threshold.",
+      "ar_coords": {
+        "x": 500,
+        "y": 150,
+        "label": "Clock Output",
+        "color": "#34d399"
+      }
+    }
+  ],
+  "ai_diagnosis": {
+    "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\\nPlease retry in 18.824076806s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'model': 'gemini-2.0-flash', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.0-flash', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.0-flash', 'location': 'global'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '18s'}]}}",
+    "thought_process": "API error occurred during analysis.",
+    "rca_block": "",
+    "mode": "error"
+  },
+  "verdict": "FAIL",
+  "root_cause": "SHORT_TO_GND on R_U1 \u2014 VCC rail collapsed from 3.3V to <0.05V"
+}
